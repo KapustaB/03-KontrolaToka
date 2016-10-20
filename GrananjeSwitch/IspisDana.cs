@@ -12,11 +12,22 @@ namespace Vsite.CSharp
         {
             switch (danUTjednu)
             {
-                // TODO: Napisati grane case za svaki dan u tjednu tako da vraćaju "ponedjeljak" za DayOfWeek.Monday, "utorak" za DayOfWeek.Tuesday itd.
-
-                // TODO: Za nepodržane vrijednosti treba baciti iznimku tipa ArgumentOutOfRangeException:
+                case DayOfWeek.Monday:
+                    return "ponedjeljak";
+                case DayOfWeek.Tuesday:
+                    return "utorak";
+                case DayOfWeek.Wednesday:
+                    return "srijeda";
+                case DayOfWeek.Thursday:
+                    return "četvrtak";
+                case DayOfWeek.Friday:
+                    return "petak";
+                case DayOfWeek.Saturday:
+                    return "subota";
+                case DayOfWeek.Sunday:
+                    return "nedjelja";
                 default:
-                    throw new NotImplementedException();
+                    throw new ArgumentOutOfRangeException(nameof(danUTjednu));
             }
         }
 
@@ -25,10 +36,18 @@ namespace Vsite.CSharp
             switch (danUTjednu)
             {
                 // TODO: Napisati grane case tako da za svaki radni dan u tjednu vraća "radni dan", a za subotu i nedjelju vraća "vikend"
-
+                case DayOfWeek.Monday:
+                case DayOfWeek.Tuesday:
+                case DayOfWeek.Wednesday:
+                case DayOfWeek.Thursday:
+                case DayOfWeek.Friday:
+                    return "radni dan";
+                case DayOfWeek.Saturday:
+                case DayOfWeek.Sunday:
+                    return "vikend";
                 // TODO: Za nepodržane vrijednosti treba baciti iznimku tipa ArgumentOutOfRangeException:
                 default:
-                    throw new NotImplementedException();
+                    throw new ArgumentOutOfRangeException(nameof(danUTjednu));
             }
         }
     }
